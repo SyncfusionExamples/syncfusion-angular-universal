@@ -20,7 +20,7 @@ To use Syncfusion Angular UI components in an Angular Universal application, fol
 
 * Download or clone the starter project from the syncfusion-angular-universal repository
 * Run `npm install` command to install all required dependencies.
-* Follow the [Getting Started](../getting-started/angular-cli/) to add required component and its code changes.
+* Follow the [Getting Started](https://ej2.syncfusion.com/angular/documentation/getting-started/angular-cli) to add required component and its code changes.
 * Run `npm run build:ssr` && `npm run serve:ssr` command to build and serve the application in both prerender and rerender(ssr) mode of the universal.
 
 ## See also
