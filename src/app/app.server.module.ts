@@ -9,9 +9,6 @@ import { AppComponent } from './app.component';
     AppModule,
     ServerModule,
   ],
-  providers: [
-    // Add server-only providers here.
-  ],
   bootstrap: [AppComponent],
 })
 export class AppServerModule {}

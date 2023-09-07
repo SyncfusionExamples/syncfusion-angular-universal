@@ -3,30 +3,26 @@ import 'zone.js/node';
 import { APP_BASE_HREF } from '@angular/common';
 import { ngExpressEngine } from '@nguniversal/express-engine';
 import * as express from 'express';
-import { existsSync } from 'fs';
-import { join } from 'path';
-
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
 import { AppServerModule } from './src/main.server';
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
   const server = express();
-  const distFolder = join(process.cwd(), 'dist/browser');
+  const distFolder = join(process.cwd(), 'dist/syncfusion-angular-app/browser');
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
 
   // Our Universal express-engine (found @ https://github.com/angular/universal/tree/main/modules/express-engine)
   server.engine('html', ngExpressEngine({
-    bootstrap: AppServerModule,
+    bootstrap: AppServerModule
   }));
 
   server.set('view engine', 'html');
   server.set('views', distFolder);
 
-  // TODO: implement data requests securely
-  server.get('/api/**', (req, res) => {
-    res.status(404).send('data requests are not yet supported');
-  });
-
+  // Example Express Rest API endpoints
+  // server.get('/api/**', (req, res) => { });
   // Serve static files from /browser
   server.get('*.*', express.static(distFolder, {
     maxAge: '1y'
