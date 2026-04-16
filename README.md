@@ -1,17 +1,28 @@
 # Angular Universal: Server-side Rendering in Angular Frameworks
 
-Angular Universal is a feature in the Angular framework that enables server-side rendering (SSR) of Angular applications. With Angular Universal, Angular applications can be run on the server-side, allowing them to be integrated with server-side tools and frameworks like Asp.Net WebForms and Asp.Net MVC. This helps to enhance the performance and provide a better user experience, as the initial render of the page can be done on the server, reducing the time required to display the content on the client.
+Angular Universal enables server-side rendering (SSR) for Angular applications to improve initial load performance and SEO. Server-rendered HTML reduces time-to-first-paint and improves crawlability for search engines.
 
-For more information, refer to the [Angular Universal](https://github.com/angular/universal) repository.
+This project shows how to integrate Syncfusion Angular components (`@syncfusion/ej2-angular-grids`) into an SSR-capable Angular app. It explains where to import Grid modules, how to include global CSS so server-rendered markup is styled correctly, and how to render initial grid data on the server (for example using TransferState) so the client can hydrate without a visible empty state. Guard browser-only APIs with `isPlatformBrowser` and defer DOM access to client-only lifecycle hooks.
 
 ## Run the sample project
 
-1. Clone the repository of the Synfusion Angular Universal project by using the `git clone` command.
+Clone and run locally:
 
 ```bash
 git clone https://github.com/SyncfusionExamples/syncfusion-angular-universal.git
+cd syncfusion-angular-universal
+npm install
 ```
 
-2. Use NPM to install the required dependencies by running the npm install command.
+Build and serve the SSR bundle:
 
-3. Build and serve the application by running the `npm run build:ssr` and `npm run serve:ssr` command.
+```bash
+npm run build:ssr
+npm run serve:ssr
+```
+
+For the Ionic example (if present), run:
+
+```bash
+ionic serve
+```
